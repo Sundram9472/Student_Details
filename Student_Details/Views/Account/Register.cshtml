@@ -1,0 +1,79 @@
+﻿@model Student_Details.Models.Login_SignUp_UserDetails
+
+@{
+    ViewBag.Title = "Register";
+}
+
+
+
+<link href="~/Content/Partial.css" rel="stylesheet" />
+<div id="register">
+    <h2>Register</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label class="control-label col-md-2">First Name</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.First_Name, new { @autocomplete = "off", @value = User.Identity.Name })
+                    <br />
+                    @Html.ValidationMessageFor(model => model.First_Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">last Name</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Last_Name, new { @autocomplete = "off" })
+                    <br />
+                    @Html.ValidationMessageFor(model => model.Last_Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Gmail</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Gmail_Id, new { @autocomplete = "off" })
+                    <br />
+                    @Html.ValidationMessageFor(model => model.Gmail_Id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">UserName</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.User_Name, new { @autocomplete = "off" })
+                    <br />
+                    @Html.ValidationMessageFor(model => model.User_Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Password</label>
+                <div class="col-md-10">
+                    @Html.PasswordFor(model => model.PassWord, new { @autocomplete = "false" })
+                    <br />
+                    @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Register" class="btn btn-default" />
+                    <div>
+                        @Html.ActionLink("Click To Login", "Login")
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

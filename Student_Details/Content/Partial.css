@@ -1,0 +1,38 @@
+﻿
+#facebook{
+    margin-left: 15px;
+}
+
+#instagram {
+    margin-left: 30px;
+}
+
+#pinterst {
+    margin-left: 35px;
+}
+#Details {
+    color:cadetblue;
+    background: rgba(0,0,0,0.7);
+    padding: 6px 11px;
+}
+#Social-icon
+{
+    color:#fff;
+    background:rgba(0,0,0,0.9);
+    padding:6px 11px;
+}
+#GetList {
+    color: #fff;
+    background: rgba(0,0,0,0.8);
+    padding: 6px 11px;
+}
+#login {
+    color:darkslategrey;
+    background: rgba(0,0,0,0.2);
+    padding: 6px 11px;
+}
+#register {
+    color: darkslategrey;
+    background: rgba(0,0,0,0.2);
+    padding: 6px 11px;
+}

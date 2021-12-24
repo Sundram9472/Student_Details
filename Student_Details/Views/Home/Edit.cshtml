@@ -1,0 +1,86 @@
+﻿@model Student_Details.Models.Student_Details_Sundram
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+<h2>@Html.DisplayFor(model => model.Student_FirstName) Details</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Student_ID)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Roll Number</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Student_Roll_Number, new { PlaceHolder = "Roll Number", @autocomplete = "off" })
+                <br />
+                @Html.ValidationMessageFor(model => model.Student_Roll_Number, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">First Name</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Student_FirstName, new { PlaceHolder = "First Name", @autocomplete = "off" })
+                <br />
+                @Html.ValidationMessageFor(model => model.Student_FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Last Name</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Student_LastName, new { PlaceHolder = "Last Name", @autocomplete = "off" })
+                <br />
+                @Html.ValidationMessageFor(model => model.Student_LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">College</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Student_UniversityName, new { PlaceHolder = "College", @autocomplete = "off" })
+                <br />
+                @Html.ValidationMessageFor(model => model.Student_UniversityName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Email</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Student_MailId, new { placeHolder = "Email Adress", @autocomplete = "off" })
+                <br />
+                @Html.ValidationMessageFor(model => model.Student_MailId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Programming Language</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Student_Preffered_ProgrammingLanguage, new { PlaceHolder = "P-Language", @autocomplete = "off" })
+                <br />
+                @Html.ValidationMessageFor(model => model.Student_Preffered_ProgrammingLanguage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "getList")
+</div>

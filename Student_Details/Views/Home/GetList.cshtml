@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Student_Details.Models.Student_Details_Sundram>
+
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/Partial.css" rel="stylesheet" />
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Add New Student", "Create")
+</p>
+<div id="GetList">
+    @Html.Action("TotaltNoOfstudent")
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                ROll Number
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Gmail
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student_Roll_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student_FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student_LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student_MailId)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Student_ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Student_ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Student_ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

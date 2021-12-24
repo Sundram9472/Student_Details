@@ -1,0 +1,33 @@
+﻿body {
+    background-color: aqua;
+    background-image: url('../../Content/Images/Index3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+#text {
+    color: #fff;
+    background: rgba(0,0,0,0.7);
+    padding: 6px 11px;
+}
+#text1 {
+    color: #fff;
+    background: rgba(0,0,0,0.7);
+    padding: 6px 11px;
+}
+#dropdown
+{
+    margin-top:40px;
+}
+#pic {
+    width: auto;
+    height: auto;
+}
+#textforError
+{
+    text-align:center;
+    color:red;
+}
+#iconfor {
+    text-align: right;
+}
