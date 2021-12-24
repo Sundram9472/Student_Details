@@ -4,10 +4,7 @@
     ViewBag.Title = "Login";
 }
 <link href="~/Content/Partial.css" rel="stylesheet" />
-@if(ViewBag.FPassword != null)
-            {
-                <p>Your PassWord :- @ViewBag.FPassword</p>
-            }
+
 <div id="login">
     <h2>Login</h2>
     @using (Html.BeginForm())
