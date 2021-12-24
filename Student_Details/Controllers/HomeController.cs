@@ -126,6 +126,7 @@ namespace Student_Details.Controllers
             bool Data = await DBaccess.UpdatePassWord(model, ID_value);
             if (Data)
             {
+                FormsAuthentication.SignOut();
                 return RedirectToAction("Login","Account");
 
             }
@@ -151,7 +152,6 @@ namespace Student_Details.Controllers
             bool Data = await DBaccess.EditUserProfileAsync(model);
             if(Data)
             {
-                FormsAuthentication.SignOut();
                 return RedirectToAction("Index");
             }
             else
