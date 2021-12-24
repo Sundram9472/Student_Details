@@ -15,10 +15,6 @@
     background: rgba(0,0,0,0.7);
     padding: 6px 11px;
 }
-#dropdown
-{
-    margin-top:40px;
-}
 #pic {
     width: auto;
     height: auto;
@@ -28,6 +24,10 @@
     text-align:center;
     color:red;
 }
-#iconfor {
-    text-align: right;
+#dropdown {
+    float: right;
+}
+.togglebutton
+{
+    float:right;
 }
