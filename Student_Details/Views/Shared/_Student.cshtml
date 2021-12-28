@@ -1,15 +1,15 @@
 ﻿<!DOCTYPE html>
+
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="~/Content/Index.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Student.css" rel="stylesheet" />
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -18,7 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("SoftProdigy", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("SoftProdigy", "Index", "Student", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -26,12 +26,17 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-
-                        <li>@Html.ActionLink("Get Student", "GetList", "Home")</li>
-                        <li>@Html.ActionLink("Get Teacher", "GetTeacherList", "Home")</li>
-                        <li>@Html.ActionLink("Add Student", "Create", "Home")</li>
-                        <li>@Html.ActionLink("Add Teacher", "CreateTeacher", "Home")</li>
+                        
                         <li><a>Welcome:-@Session["Name"]</a></li>
+                    }
+                    else
+                    {
+
+                    }
+                </ul>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <ul class="togglebutton">
                         <li>
                             <div class="dropdown">
                                 <p class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,38 +51,16 @@
                                         @Html.ActionLink("LogOut", "LogOut", "Account")
                                     </p>
                                     <p class="dropdown-item">
-                                        @Html.ActionLink("Update Profile", "EditUserProfile", "Home")
+                                        @Html.ActionLink("Change Mail", "UpdateMail", "Student")
+                                    </p>
+                                    <p class="dropdown-item">
+                                        @Html.ActionLink("Profile", "StudentDetails", "Student")
                                     </p>
                                 </div>
                             </div>
                         </li>
-
-                    }
-                    else
-                    {
-                        <div class="togglebutton">
-                            <p class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <a>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 10 10">
-                                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-                                    </svg>
-                                </a>
-                            </p>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <p class="dropdown-item">
-                                    @Html.ActionLink("Admin", "AdminAuth", "Account")
-                                </p>
-                                <p class="dropdown-item">
-                                    @Html.ActionLink("Teacher", "TeacherAuth", "Account")
-                                </p>
-                                <p class="dropdown-item">
-                                    @Html.ActionLink("Student", "StudentAuth", "Account")
-                                </p>
-                            </div>
-                        </div>
-                    }
-                </ul>
-               
+                    </ul>
+                }
             </div>
         </div>
     </div>

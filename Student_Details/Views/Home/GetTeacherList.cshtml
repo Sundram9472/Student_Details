@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Student_Details.Models.Login_SignUp_UserDetails>
+
+@{
+    ViewBag.Title = "GetTeacherList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Partial.css" rel="stylesheet" />
+<div id="GetList">
+    <table class="table">
+        <tr>
+            <th>
+                FirstName
+            </th>
+            <th>
+                LastName
+            </th>
+            <th>
+                Gmail
+            </th>
+            <th>
+                UserName
+            </th>
+            <th>
+                passWord
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.First_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Last_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gmail_Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PassWord)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditTeacher", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "DetailsTeacher", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "DeleteTeacher", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

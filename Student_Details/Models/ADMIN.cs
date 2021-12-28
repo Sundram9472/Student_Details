@@ -10,34 +10,31 @@
 namespace Student_Details.Models
 {
     using System;
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel;
     using System.Collections.Generic;
     
-    public partial class Student_Details_Sundram
+    public partial class ADMIN
     {
-        public int Student_ID { get; set; }
+        public int ADM_ID { get; set; }
 
-        [Required(ErrorMessage = "ROllNumber Required !")]
-        public int Student_Roll_Number { get; set; }
+        [Required(ErrorMessage ="Name Required !")]
+        public string ADM_Name { get; set; }
 
-        [Required(ErrorMessage = "FirstName Required !")]
-        public string Student_FirstName { get; set; }
+        [Required(ErrorMessage = "Contact Required !")]
+        public string ADM_Contact_Number { get; set; }
 
-        [Required(ErrorMessage = "LastName Required !")]
-        public string Student_LastName { get; set; }
-
-        [Required(ErrorMessage = "College Required !")]
-        public string Student_UniversityName { get; set; }
-
-        [Required(ErrorMessage = "Mail Required !")]
+        [Required(ErrorMessage = "Gmail Required !")]
         [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
                             @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
                             @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
                             ErrorMessage = "Email is not valid")]
-        public string Student_MailId { get; set; }
+        public string ADM_Gmail { get; set; }
 
-        [Required(ErrorMessage = "Programming Language Required !")]
-        public string Student_Preffered_ProgrammingLanguage { get; set; }
+        [Required(ErrorMessage ="UserName Required!")]
+        public string ADM_UserName { get; set; }
+
+        [Required(ErrorMessage = "PassWord Required!")]
+        public string ADM_Password { get; set; }
     }
 }

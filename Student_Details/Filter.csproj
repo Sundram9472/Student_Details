@@ -135,8 +135,12 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ADMIN.cs">
+      <DependentUpon>StudentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Login_SignUp_UserDetails.cs">
       <DependentUpon>StudentModel.tt</DependentUpon>
@@ -163,12 +167,15 @@
     <Compile Include="Service\DBaccess.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Index.css" />
     <Content Include="Content\Partial.css" />
+    <Content Include="Content\Student.css" />
+    <Content Include="Content\Error.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -221,16 +228,28 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\FotterContent.cshtml" />
     <Content Include="Views\Home\UpdatePassWord.cshtml" />
+    <Content Include="Views\Shared\_Teacher.cshtml" />
+    <Content Include="Views\Student\StudentDetails.cshtml" />
+    <Content Include="Views\Account\TeacherAuth.cshtml" />
+    <Content Include="Views\Account\AdminAuth.cshtml" />
+    <Content Include="Views\Shared\_Student.cshtml" />
+    <Content Include="Views\Account\StudentAuth.cshtml" />
+    <Content Include="Views\Teacher\getStudentList.cshtml" />
+    <Content Include="Views\Teacher\Index.cshtml" />
+    <Content Include="Views\Teacher\Create.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Home\CreateTeacher.cshtml" />
+    <Content Include="Views\Home\GetTeacherList.cshtml" />
+    <Content Include="Views\Home\EditTeacher.cshtml" />
+    <Content Include="Views\Home\DetailsTeacher.cshtml" />
+    <Content Include="Views\Teacher\Details.cshtml" />
+    <Content Include="Views\Student\UpdateMail.cshtml" />
     <Content Include="Views\Home\EditUserProfile.cshtml" />
-    <Content Include="Views\student.cshtml" />
-    <Content Include="Views\Student\AllStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

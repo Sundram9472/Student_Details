@@ -1,59 +1,63 @@
-﻿@model Student_Details.Models.Login_SignUp_UserDetails
+﻿@model Student_Details.Models.ADMIN
 
 @{
     ViewBag.Title = "EditUserProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>EditUserProfile</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
+        <h4>ADMIN</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.ADM_ID)
 
         <div class="form-group">
-            <label class = "control-label col-md-2">FirstName</label>
+          <label class = "control-label col-md-2">Name</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.First_Name, new {@autocomplete="off" })
-                <br />
-                @Html.ValidationMessageFor(model => model.First_Name, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model => model.ADM_Name, new { @autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.ADM_Name, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <label  class = "control-label col-md-2">LastName</label>
+            <label class="control-label col-md-2">Contact Number</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Last_Name, new { @autocomplete="off" })
-                <br />
-                @Html.ValidationMessageFor(model => model.Last_Name, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model => model.ADM_Contact_Number, new { @autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.ADM_Contact_Number, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-           <label class = "control-label col-md-2">Gmail</label>
+            <label class="control-label col-md-2">Gmail</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Gmail_Id, new {@autocomplete="off" })
-                <br />
-                @Html.ValidationMessageFor(model => model.Gmail_Id, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model => model.ADM_Gmail, new { @autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.ADM_Gmail, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <label class = "control-label col-md-2">UserName</label>
+            <label class="control-label col-md-2">UserName</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.User_Name, new { @autocomplete="off" })
-                <br />
-                @Html.ValidationMessageFor(model => model.User_Name, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model => model.ADM_UserName, new { @autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.ADM_UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">PassWord</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ADM_Password, new { @autocomplete="off" })
+                @Html.ValidationMessageFor(model => model.ADM_Password, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Update" class="btn btn-default" />
             </div>
         </div>
     </div>

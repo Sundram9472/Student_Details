@@ -1,25 +1,33 @@
 ﻿@model Student_Details.Models.Login_SignUp_UserDetails
 
 @{
-    ViewBag.Title = "UpdatePassWord";
+    ViewBag.Title = "TeacherAuth";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm())
+<h2>TeacherAuth</h2>
+
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
-        <h4>@Session["Name"]</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
-
+        
+        <div class="form-group">
+           <label class = "control-label col-md-2" >UserName</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.User_Name, new { @autocomplete = "off" })
+                <br />
+                @Html.ValidationMessageFor(model => model.User_Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
             <label class="control-label col-md-2">PassWord</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PassWord, new { @autocomplete = "off" })
+                @Html.PasswordFor(model => model.PassWord, new { @autocomplete = "off" })
                 <br />
                 @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "text-danger" })
             </div>
@@ -27,12 +35,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Login" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to Home", "Index")
+    @Html.ActionLink("Back to Home", "Index", "Home")
 </div>

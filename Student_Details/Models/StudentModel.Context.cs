@@ -27,5 +27,6 @@ namespace Student_Details.Models
     
         public virtual DbSet<Login_SignUp_UserDetails> Login_SignUp_UserDetails { get; set; }
         public virtual DbSet<Student_Details_Sundram> Student_Details_Sundram { get; set; }
+        public virtual DbSet<ADMIN> ADMINs { get; set; }
     }
 }

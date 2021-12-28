@@ -2,19 +2,20 @@
 
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Teacher.cshtml";
 }
 
-@using (Html.BeginForm())
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
-
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            <label class="control-label col-md-2">Roll Number</label>
+          <label class = "control-label col-md-2">Roll Number</label>
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Student_Roll_Number, new { @autocomplete = "off" })
                 <br />
@@ -41,7 +42,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">University</label>
+            <label class="control-label col-md-2">College Name</label>
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Student_UniversityName, new { @autocomplete = "off" })
                 <br />
@@ -59,9 +60,9 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">P-Language</label>
+            <label class="control-label col-md-2">Programming Language</label>
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Student_Preffered_ProgrammingLanguage, new { @autocomplete = "off" })
+                @Html.TextBoxFor(model => model.Student_Preffered_ProgrammingLanguage, new {@autocomplete="off" })
                 <br />
                 @Html.ValidationMessageFor(model => model.Student_Preffered_ProgrammingLanguage, "", new { @class = "text-danger" })
             </div>
@@ -69,13 +70,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="ADD" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to Home", "Index","Index")
+    @Html.ActionLink("Back to List", "Index","Teacher")
 </div>
-

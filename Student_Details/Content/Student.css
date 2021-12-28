@@ -1,34 +1,20 @@
 ﻿body {
     background-color: aqua;
-    background-image: url('../../Content/Images/Index3.jpg');
+    background-image: url('../../Content/Images/Student.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+}
+.togglebutton{
+    float:right;
 }
 #text {
     color: #fff;
     background: rgba(0,0,0,0.7);
     padding: 6px 11px;
 }
-#text1 {
+#FooterContent {
     color: #fff;
     background: rgba(0,0,0,0.7);
     padding: 6px 11px;
-}
-#pic {
-    width: auto;
-    height: auto;
-}
-#textforError
-{
-    text-align:center;
-    color:red;
-}
-#dropdown {
-    float: right;
-}
-
-.togglebutton
-{
-    float:right;
 }

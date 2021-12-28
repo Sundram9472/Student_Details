@@ -12,29 +12,78 @@ using System.Web.Security;
 
 namespace Student_Details.Controllers
 {
-
+    [HandleError]
     public class AccountController : Controller
     {
+        
+
         [HttpGet]
-        public ActionResult Login()
+        public ActionResult AdminAuth()
         {
             return View();
         }
 
         [HttpPost]
-        [HandleError]
-        public async Task<ActionResult>Login(Login_SignUp_UserDetails model)
+        public async Task<ActionResult>AdminAuth(ADMIN model)
         {
-            var Data = await DBaccess.LoginAsync(model);
+            var Data = await DBaccess.LoginAdminAsync(model);
                 if (Data != null)
                 {
-                    FormsAuthentication.SetAuthCookie(model.User_Name, false);
-                     Session["Name"] = Data.First_Name;
-                     Session["ID"] = Data.ID;
+                    FormsAuthentication.SetAuthCookie(model.ADM_UserName, false);
+                    Session["Name"] = Data.ADM_Name;
+                    Session["ID"] = Data.ADM_ID;
+                    Session["UserType"] = "Admin";
                     return RedirectToAction("Index", "Home");
                 }
                
             ModelState.AddModelError("", "Invalid UserName And Password");
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult TeacherAuth()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> TeacherAuth(Login_SignUp_UserDetails model)
+        {
+            var Data = await DBaccess.LoginTeacherAsync(model);
+            if (Data != null)
+            {
+                FormsAuthentication.SetAuthCookie(model.User_Name, false);
+                Session["Name"] = Data.First_Name;
+                Session["ID"] = Data.ID;
+                Session["UserType"] = "Teacher";
+                return RedirectToAction("Index", "Teacher");
+            }
+
+            ModelState.AddModelError("", "Invalid UserName And Password");
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult StudentAuth()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> StudentAuth(Student_Details_Sundram model)
+        {
+            var MailID = model.Student_MailId;
+            var Data = await DBaccess.LoginStudentAsync(MailID);
+            if (Data != null)
+            {
+                FormsAuthentication.SetAuthCookie(model.Student_FirstName, false);
+                Session["Name"] = Data.Student_FirstName;
+                Session["ID"] = Data.Student_ID;
+                Session["UserType"] = "Student";
+                return RedirectToAction("Index", "Student");
+            }
+
+            ModelState.AddModelError("", "Invalid Gmail");
             return View();
         }
 
@@ -62,9 +111,7 @@ namespace Student_Details.Controllers
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Login");
+            return RedirectToAction("Index", "Home");
         }
-
-       
     }
 }

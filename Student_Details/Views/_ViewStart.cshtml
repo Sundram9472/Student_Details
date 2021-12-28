@@ -1,3 +1,22 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿
+@{
+    dynamic Layout;
+    switch (Session["UserType"])
+    {
+        case "Admin":
+            Layout = "~/Views/Shared/_Layout.cshtml";
+            break;
+
+        case "Teacher":
+            Layout = "~/Views/Shared/_Teacher.cshtml";
+            break;
+
+        case "Student":
+            Layout = "~/Views/Shared/_Student.cshtml";
+            break;
+
+        default:
+            Layout = "~/Views/Shared/_Layout.cshtml";
+            break;
+    }
 }

@@ -113,31 +113,6 @@ namespace Student_Details.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> UpdatePassWord()
-        {
-
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<ActionResult> UpdatePassWord(Login_SignUp_UserDetails model)
-        {
-            String ID_value = Session["ID"].ToString();
-            bool Data = await DBaccess.UpdatePassWord(model, ID_value);
-            if (Data)
-            {
-                FormsAuthentication.SignOut();
-                return RedirectToAction("Login","Account");
-
-            }
-            else
-            {
-                throw new Exception();
-            }
-
-        }
-
-        [HttpGet]
         public async Task<ActionResult> EditUserProfile()
         {
             String ID_value = Session["ID"].ToString();
@@ -147,7 +122,7 @@ namespace Student_Details.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> EditUserProfile(Login_SignUp_UserDetails model)
+        public async Task<ActionResult> EditUserProfile(ADMIN model)
         {
             bool Data = await DBaccess.EditUserProfileAsync(model);
             if(Data)
@@ -160,7 +135,72 @@ namespace Student_Details.Controllers
             }
             
         }
+        [HttpGet]
+        public ActionResult CreateTeacher()
+        {
+            return View();
+        }
 
-    
+        [HttpPost]
+        public async Task<ActionResult> CreateTeacher(Login_SignUp_UserDetails Teacherdetails)
+        {
+            bool Data = await DBaccess.CreateTeacherAsync(Teacherdetails);
+            if (Data)
+            {
+                return RedirectToAction("getList");
+            }
+            else
+            {
+                throw new Exception();
+            }
+        }
+
+        public async Task<ActionResult> GetTeacherList()
+        {
+            List<Login_SignUp_UserDetails > data = await DBaccess.GetAllteachersAsync();
+            return View(data);
+        }
+
+
+        public async Task<ActionResult> DeleteTeacher(int ID)
+        {
+            bool Data = await DBaccess.DeleteTeacherAsync(ID);
+            if(Data)
+            {
+                return RedirectToAction("GetTeacherList");
+            }
+            else
+            {
+                throw new Exception();
+            }
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> EditTeacher(int ID)
+        {
+            var Data = await DBaccess.EditTeacherAsync(ID);
+            return View(Data);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> EditTeacher(Login_SignUp_UserDetails editStudentobj)
+        {
+            bool Data = await DBaccess.EditTeacherAsync(editStudentobj);
+            if (Data)
+            {
+                return RedirectToAction("GetTeacherList");
+            }
+            else
+            {
+                throw new Exception();
+            }
+        }
+
+        public async Task<ActionResult> DetailsTeacher(int ID)
+        {
+            var data = await DBaccess.DetailsTeacherAsync(ID);
+            return View(data);
+        }
+
     }
 }

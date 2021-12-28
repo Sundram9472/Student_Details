@@ -12,35 +12,29 @@ namespace Student_Details.Models
     using System;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Web;
     using System.Collections.Generic;
-    
+
     public partial class Login_SignUp_UserDetails
     {
         public int ID { get; set; }
-        
-        [Required(ErrorMessage ="First Name Required !")]
-        [DataType(DataType.Text)]
+
+        [Required(ErrorMessage = "FirstName Required !")]
         public string First_Name { get; set; }
 
-        [DataType(DataType.Text)]
+        [Required(ErrorMessage = "LastName Required !")]
         public string Last_Name { get; set; }
 
-        [Required(ErrorMessage = "Email is Requirde")]
+        [Required(ErrorMessage = "Gmail Required !")]
         [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
-                              @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
-                              @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
-                              ErrorMessage = "Email is not valid")]
+                            @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+                            @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
+                            ErrorMessage = "Email is not valid")]
         public string Gmail_Id { get; set; }
 
-        [DataType(DataType.Text)]
-        [Required(ErrorMessage ="UserName Required !")]
-
+        [Required(ErrorMessage = "UserName Required !")]
         public string User_Name { get; set; }
 
-        [DataType(DataType.Password)]
-        [Required(ErrorMessage ="Password Required !")]
+        [Required(ErrorMessage = "PassWord Required !")]
         public string PassWord { get; set; }
     }
 }

@@ -1,12 +1,13 @@
 ﻿@model Student_Details.Models.Student_Details_Sundram
 
 @{
-    ViewBag.Title = "Delete";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Student.cshtml";
 }
-<h3>Are you sure you want to delete this?</h3>
+<h4>@Html.DisplayFor(model => model.Student_FirstName)</h4>
+
 <div>
-    <h4>Student_Details_Sundram</h4>
+    <h4></h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -18,7 +19,7 @@
         </dd>
 
         <dt>
-            Roll-Number
+            ROll Number
         </dt>
 
         <dd>
@@ -26,7 +27,7 @@
         </dd>
 
         <dt>
-            First-Name
+            First Name
         </dt>
 
         <dd>
@@ -34,7 +35,7 @@
         </dd>
 
         <dt>
-            Last-Name
+            Last Name
         </dt>
 
         <dd>
@@ -42,7 +43,7 @@
         </dd>
 
         <dt>
-            College-Name
+            College
         </dt>
 
         <dd>
@@ -58,7 +59,7 @@
         </dd>
 
         <dt>
-            P-Language
+            P Language
         </dt>
 
         <dd>
@@ -66,13 +67,7 @@
         </dd>
 
     </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-        </div>
-    }
 </div>
+<p>
+    @Html.ActionLink("Back to Home", "Index","Student")
+</p>
